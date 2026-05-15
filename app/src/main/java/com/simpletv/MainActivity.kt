@@ -2,13 +2,17 @@ package com.simpletv
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
-import android.widget.FrameLayout
 import android.view.SurfaceView
+import android.widget.FrameLayout
+import androidx.media3.common.Player
+import androidx.media3.common.VideoSize
 import com.simpletv.channel.Channel
 import com.simpletv.channel.ChannelRepository
 import com.simpletv.playback.TvPlayerController
 import com.simpletv.ui.PlayerChromeView
+import kotlin.math.roundToInt
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
@@ -19,6 +23,7 @@ class MainActivity : Activity() {
     private lateinit var controller: TvPlayerController
     private lateinit var chrome: PlayerChromeView
     private var channels: List<Channel> = emptyList()
+    private var currentVideoSize: VideoSize = VideoSize.UNKNOWN
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,16 +55,36 @@ class MainActivity : Activity() {
             }
         }
 
+        val videoHost = FrameLayout(this).apply {
+            setBackgroundColor(android.graphics.Color.BLACK)
+        }
         val surfaceView = SurfaceView(this).apply {
             layoutParams = FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
-                FrameLayout.LayoutParams.MATCH_PARENT
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                Gravity.CENTER
             )
         }
+        videoHost.addView(surfaceView)
+        videoHost.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            updateVideoSurfaceBounds(videoHost, surfaceView)
+        }
         controller.player.setVideoSurfaceView(surfaceView)
+        controller.player.addListener(object : Player.Listener {
+            override fun onVideoSizeChanged(videoSize: VideoSize) {
+                currentVideoSize = videoSize
+                videoHost.post { updateVideoSurfaceBounds(videoHost, surfaceView) }
+            }
+        })
         setContentView(
             FrameLayout(this).apply {
-                addView(surfaceView)
+                addView(
+                    videoHost,
+                    FrameLayout.LayoutParams(
+                        FrameLayout.LayoutParams.MATCH_PARENT,
+                        FrameLayout.LayoutParams.MATCH_PARENT
+                    )
+                )
                 addView(
                     chrome,
                     FrameLayout.LayoutParams(
@@ -104,6 +129,36 @@ class MainActivity : Activity() {
         controller.play(channel)
     }
 
+    private fun updateVideoSurfaceBounds(videoHost: FrameLayout, surfaceView: SurfaceView) {
+        val hostWidth = videoHost.width
+        val hostHeight = videoHost.height
+        if (hostWidth <= 0 || hostHeight <= 0) return
+
+        val videoWidth = currentVideoSize.width
+        val videoHeight = currentVideoSize.height
+        val videoRatio = if (videoWidth > 0 && videoHeight > 0) {
+            videoWidth * currentVideoSize.pixelWidthHeightRatio / videoHeight
+        } else {
+            DEFAULT_VIDEO_RATIO
+        }
+        val hostRatio = hostWidth.toFloat() / hostHeight
+        val targetWidth: Int
+        val targetHeight: Int
+        if (hostRatio > videoRatio) {
+            targetHeight = hostHeight
+            targetWidth = (targetHeight * videoRatio).roundToInt()
+        } else {
+            targetWidth = hostWidth
+            targetHeight = (targetWidth / videoRatio).roundToInt()
+        }
+
+        val current = surfaceView.layoutParams as? FrameLayout.LayoutParams
+        if (current?.width == targetWidth && current.height == targetHeight && current.gravity == Gravity.CENTER) {
+            return
+        }
+        surfaceView.layoutParams = FrameLayout.LayoutParams(targetWidth, targetHeight, Gravity.CENTER)
+    }
+
     private fun refreshChannelsFromUser() {
         mainScope.launch {
             chrome.showStatus("正在刷新频道")
@@ -140,5 +195,9 @@ class MainActivity : Activity() {
         controller.release()
         mainScope.cancel()
         super.onDestroy()
+    }
+
+    private companion object {
+        private const val DEFAULT_VIDEO_RATIO = 16f / 9f
     }
 }

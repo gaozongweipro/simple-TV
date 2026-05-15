@@ -1,0 +1,5 @@
+<resources>
+    <color name="player_background">#090B0F</color>
+    <color name="drawer_background">#E6192028</color>
+    <color name="drawer_item_selected">#2F6FED</color>
+</resources>

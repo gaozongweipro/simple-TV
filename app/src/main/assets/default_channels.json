@@ -1,0 +1,274 @@
+{
+  "version": 20260515,
+  "updatedAt": "2026-05-15",
+  "channels": [
+    {
+      "id": "cctv13",
+      "name": "CCTV-13 新闻",
+      "group": "央视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/14/index.m3u8",
+          "label": "默认"
+        }
+      ]
+    },
+    {
+      "id": "cctv1",
+      "name": "CCTV-1 综合",
+      "group": "央视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/1/index.m3u8",
+          "label": "默认"
+        }
+      ]
+    },
+    {
+      "id": "cctv2",
+      "name": "CCTV-2 财经",
+      "group": "央视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/2/index.m3u8",
+          "label": "默认"
+        }
+      ]
+    },
+    {
+      "id": "cctv4",
+      "name": "CCTV-4 中文国际",
+      "group": "央视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/4/index.m3u8",
+          "label": "默认"
+        }
+      ]
+    },
+    {
+      "id": "cctv7",
+      "name": "CCTV-7 国防军事",
+      "group": "央视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/8/index.m3u8",
+          "label": "默认"
+        }
+      ]
+    },
+    {
+      "id": "cctv9",
+      "name": "CCTV-9 纪录",
+      "group": "央视",
+      "sources": [
+        {
+          "url": "http://p.ytelc.com/169l/0/cctv.php?id=cctv9",
+          "label": "默认"
+        }
+      ]
+    },
+    {
+      "id": "cctv14",
+      "name": "CCTV-14 少儿",
+      "group": "央视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/15/index.m3u8",
+          "label": "默认"
+        }
+      ]
+    },
+    {
+      "id": "btv",
+      "name": "北京卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://satellitepull.cnr.cn/live/wxbtv/playlist.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://112.27.235.94:8000/hls/27/index.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "dragon",
+      "name": "东方卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://bp-resource-dfl.bestv.cn/155/3/video.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "https://bp-resource-dfl.bestv.cn/148/3/video.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "jsws",
+      "name": "江苏卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/32/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://222.169.85.8:9901/tsfile/live/0127_1.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "zjws",
+      "name": "浙江卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "https://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://112.27.235.94:8000/hls/29/index.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "hnws",
+      "name": "湖南卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/31/index.m3u8",
+          "label": "默认"
+        }
+      ]
+    },
+    {
+      "id": "gdws",
+      "name": "广东卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/30/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://124.116.183.146:9901/tsfile/live/0125_1.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "szws",
+      "name": "深圳卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/33/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://124.116.183.146:9901/tsfile/live/0126_1.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "ahws",
+      "name": "安徽卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/26/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://124.116.183.146:9901/tsfile/live/0130_1.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "sdws",
+      "name": "山东卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/34/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://222.169.85.8:9901/tsfile/live/0131_1.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "tjws",
+      "name": "天津卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/42/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://222.169.85.8:9901/tsfile/live/0135_1.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "dnws",
+      "name": "东南卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://live.zohi.tv/video/s10001-fztv-3/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://112.27.235.94:8000/hls/38/index.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "lnws",
+      "name": "辽宁卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/47/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://61.136.172.236:9901/tsfile/live/0121_1.m3u8",
+          "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "scws",
+      "name": "四川卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "http://112.27.235.94:8000/hls/35/index.m3u8",
+          "label": "默认"
+        },
+        {
+          "url": "http://124.116.183.146:9901/tsfile/live/0123_1.m3u8",
+          "label": "备用"
+        }
+      ]
+    }
+  ]
+}

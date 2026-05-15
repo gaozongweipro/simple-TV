@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SimpleTV</string>
+    <string name="default_channel_url">https://example.com/simpletv/channels.json</string>
+</resources>

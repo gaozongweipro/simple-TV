@@ -38,6 +38,9 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("org.jellyfin.media3:media3-ffmpeg-decoder:1.9.0+1") {
+        exclude(group = "androidx.media3")
+    }
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar", "*.jar"))))
     testImplementation("junit:junit:4.13.2")
 }

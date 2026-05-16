@@ -1,0 +1,21 @@
+services:
+  simple-tv-proxy:
+    build: .
+    container_name: simple-tv-proxy
+    restart: unless-stopped
+    ports:
+      - "8088:8088"
+    environment:
+      PORT: "8088"
+      CONFIG_PATH: "/app/config/channels.json"
+      PROXY_SECRET: "change-this-to-a-long-random-string"
+      REQUEST_TIMEOUT_MS: "8000"
+      FAILURE_COOLDOWN_MS: "120000"
+      STUCK_WINDOW_MS: "20000"
+      RELAY_STALE_MS: "25000"
+      RELAY_WARMUP_MS: "15000"
+      CACHE_DIR: "/cache"
+      FFMPEG_PATH: "ffmpeg"
+    volumes:
+      - /vol3/1000/codeLibrary/simple-tv-proxy/config:/app/config:ro
+      - /vol3/1000/codeLibrary/simple-tv-proxy/cache:/cache

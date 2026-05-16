@@ -1,6 +1,6 @@
 {
-  "version": 20260526,
-  "updatedAt": "2026-05-15",
+  "version": 20260528,
+  "updatedAt": "2026-05-16",
   "channels": [
     {
       "id": "cctv13",
@@ -303,6 +303,29 @@
         {
           "url": "http://124.116.183.146:9901/tsfile/live/0123_1.m3u8",
           "label": "备用"
+        }
+      ]
+    },
+    {
+      "id": "hljws",
+      "name": "黑龙江卫视",
+      "group": "卫视",
+      "sources": [
+        {
+          "url": "https://idclive.hljtv.com:4430/live/hljws_own.m3u8",
+          "label": "黑龙江广电"
+        },
+        {
+          "url": "https://cctvtxyh5ca.liveplay.myqcloud.com/wstv/heilongjiang_2/index.m3u8",
+          "label": "腾讯云"
+        },
+        {
+          "url": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226327/index.m3u8",
+          "label": "黑龙江移动"
+        },
+        {
+          "url": "http://39.134.193.112:6610/030000001000/HLJWS-HD/index.m3u8",
+          "label": "移动备用"
         }
       ]
     }
